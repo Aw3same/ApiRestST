@@ -1,0 +1,108 @@
+<!--
+Autor: Ángel Barroso Sanz
+TFG : SegoTour : Asistente android para un recorrido monumental virtual en Segovia
+Tutor: Jesús Cordobés Puertas
+Universidad de Valladolid, Campus María Zambrano, Segovia
+-->
+<!DOCTYPE HTML>
+
+<html>
+<% include head %>
+<body >
+		<script>
+		document.addEventListener("backbutton", onBackKeyDown, false); //Listen to the User clicking on the back button
+
+		function onBackKeyDown(e) {
+				console.log("en back");
+			  window.location='../';
+		}
+		</script>
+		<% include header%>
+	<!--Principio de la guia-->
+	<style>
+	img.alineadoTextoImagenCentro{
+	  vertical-align: middle;
+		width: 107px;
+    height: 107px;
+	  border-radius: 100%;
+	  margin-left: 25px;
+		border: solid 1px black;
+	}
+	img.alineadoTextoImagenCentro:hover{
+		opacity: 0.7;
+
+	}
+
+
+	button.alineado{
+		vertical-align: middle;
+    width: 120px;
+    height: 40px;
+    float: right;
+    margin-top: -86px;
+    margin-right: 100px;
+    border: solid 1px black;
+    color: white;
+    background-color: rgba(255, 0, 0, 0.82);
+		padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+
+	}
+
+	.etiqueta{
+	  margin-left: 30px;
+		font-variant: small-caps;
+		font-size: 20px;
+	}
+	.box{
+	  border-bottom: 1px solid #333;
+	  padding-top: 8px;
+	}
+
+	</style>
+  <center>
+	    <br>
+	    <FORM method=GET action="/museos">
+	      <TABLE bgcolor="#FFFFFF"><tr><td>
+	        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+	        <INPUT TYPE=text name=q size=31 maxlength=255 value="">
+	          <INPUT type=submit  VALUE="Búsqueda">
+	          </td></tr></TABLE>
+	    </FORM>
+  </center>
+
+	<% for(var i=0; i<museos.length; i++) { %>
+		<div class="box">
+
+				<a href="/museos/<%= museos[i]._id %>"><img class="alineadoTextoImagenCentro" src=/museos/image/<%= museos[i]._id %> ><span class="etiqueta"><%= museos[i].Nombre %></span></p></a>
+				<form action="/museos/<%= museos[i]._id %>?_method=delete" method="post" >
+					<button class="alineado" type="submit">Borrar</button>
+				</form>
+
+
+		</div>
+		<% } %>
+
+
+		<script type="text/javascript">
+										$(document).ready(function() {
+											$().UItoTop({ easingType: 'easeOutQuart' });
+										});
+									</script>
+										<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+		<!-- content-Get-in-touch -->
+	<% include footer %>

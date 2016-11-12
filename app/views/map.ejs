@@ -1,0 +1,176 @@
+<!--
+Autor: Ángel Barroso Sanz
+TFG : SegoTour : Asistente android para un recorrido monumental virtual en Segovia
+Tutor: Jesús Cordobés Puertas
+Universidad de Valladolid, Campus María Zambrano, Segovia
+-->
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>SegoTour, tu guía en el bolsillo</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- bootstrap-css -->
+<link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+<!-- //bootstrap-css -->
+<script>
+
+
+var myVar = setInterval(function(){ geoloc() }, 10000);
+
+function geoloc() {
+
+//Detectamos si nuestro dispositivo dispone de geolocalización
+if (navigator.geolocation) {
+    var optn = {
+            enableHighAccuracy : true,
+            timeout : Infinity,
+            maximumAge : 60000, // Tiempo en milisegundos que el método utiliza los datos
+            desiredAccuracy: 0,
+            frequency: 30
+    };
+//watchId = navigator.geolocation.watchPosition(showPosition, showError, optn);
+navigator.geolocation.getCurrentPosition(showPosition, showError, optn);
+
+} else {
+        alert('Tu navegador no soporta geolocalización');
+}
+}
+
+
+function showPosition(position) {
+
+    console.log("En showPosition");
+    //Ubicamos en el mapa la posición en la que estamos
+    var googlePos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+    var mapOptions = {
+        zoom : 16,
+        center : googlePos,
+        mapTypeId : google.maps.MapTypeId.ROADMAP
+    };
+    var mapObj = document.getElementById('map');
+    var googleMap = new google.maps.Map(mapObj, mapOptions);
+
+  //Marcardor que indica nuestra posición
+    var markerOpt = {
+        map : googleMap,
+        position : googlePos,
+        animation : google.maps.Animation.DROP
+    };
+    var googleMarker = new google.maps.Marker(markerOpt);
+    //Fin Marcardor
+
+    //Método para obtener la dirección en la que nos encontramos
+    var geocoder = new google.maps.Geocoder();
+    geocoder.geocode({
+        'latLng' : googlePos
+        }, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+            if (results[1]) {
+                var popOpts = {
+                    content : results[1].formatted_address,
+                    position : googlePos
+                };
+            var popup = new google.maps.InfoWindow(popOpts);
+            google.maps.event.addListener(googleMarker, 'click', function() {
+            popup.open(googleMap);
+        });
+            } else {
+                alert('No se han encontrado resultados');
+            }
+            } else {
+                alert('Geocoder fallido debido a ' + status);
+            }
+        });
+        }
+
+
+    function showError(error) {
+    var err = document.getElementById('map');
+    switch(error.code) {
+    case error.PERMISSION_DENIED:
+    err.innerHTML = "El usuario a denegado la solicitud de ubicación."
+    break;
+    case error.POSITION_UNAVAILABLE:
+    err.innerHTML = "La informacion de ubicación no está disponible."
+    break;
+    case error.TIMEOUT:
+    err.innerHTML = "La peticion para obtener la ubicación ha excedido el tiempo."
+    break;
+    case error.UNKNOWN_ERROR:
+    err.innerHTML = "Error desconocido."
+    break;
+    }
+    }
+</script>
+
+<!-- css -->
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<!-- //css -->
+<script src="js/jquery-1.11.1.min.js"> </script>
+<script src="js/bootstrap.js"></script>
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+		$(".scroll").click(function(event){
+			event.preventDefault();
+			$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+		});
+	});
+</script>
+</head>
+<body onload="geoloc()">
+<style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 100%;
+        top:-32px;
+        bottom: 0px;
+      }
+</style>
+	<!-- banner -->
+	<div class="banner banner-bg">
+		<!-- header -->
+		<div class="header">
+			<!-- container -->
+			<div class="container">
+				<div class="logo">
+					<h1><a href="index.html">Sego<span>Tour</span></a></h1>
+				</div>
+				<div class="top-nav">
+					<nav class="navbar navbar-default">
+						<div class="container">
+							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"onclick="location.href='index.html';">Volver</button>
+						</div>
+					</nav>
+				</div>
+			</div>
+			<!-- //container -->
+		</div>
+		<!-- //header -->
+	</div>
+	<!-- banner -->
+<!--MAPS-->
+<div id="map"></div>
+
+	 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2fntchaRZKrYdAhZuRgTvFE_wbetVpZw&signed_in=true&callback=geoloc&libraries=geometry"
+			 async defer>
+	 </script>
+<!--<script src="http://maps.googleapis.com/maps/api/js?libraries=geometry&sensor=false"></script>-->
+	<script type="text/javascript">
+									$(document).ready(function() {
+										$().UItoTop({ easingType: 'easeOutQuart' });
+									});
+								</script>
+									<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+	<!-- content-Get-in-touch -->
+	<script type="text/javascript" src="js/move-top.js"></script>
+	<script type="text/javascript" src="js/easing.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+
+  <html>
+  <% include head %>
+  <body>
+
+    <% include header %>
+    <article style="margin-top:80px">
+
+      <center>
+          <form action="/festivales" method="post" enctype="multipart/form-data" >
+            Nombre
+            <input type="text" name="Nombre">
+            <br><br><br>
+            Fecha
+            <input type="text" name="Fecha">
+            <br><br><br><br>
+            <input name="imageupload" id="imageupload"  type="file" accept="image/*" />
+            <br><br>
+            Descripción
+            <textarea name="Descripcion"></textarea>
+            <!-- <input type="text" name="Descripcion"> -->
+            <br><br><br>
+
+            <input type="submit" value="Aceptar">
+            <br>
+
+
+
+          </form>
+
+
+
+      </article>
+
+
+
+    </body></html>

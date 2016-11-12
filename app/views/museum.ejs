@@ -1,0 +1,56 @@
+<!--
+Autor: Ángel Barroso Sanz
+TFG : SegoTour : Asistente android para un recorrido monumental virtual en Segovia
+Tutor: Jesús Cordobés Puertas
+Universidad de Valladolid, Campus María Zambrano, Segovia
+-->
+<html>
+	<% include head%>
+<body >
+	<div class="banner banner-bg">
+	<% include header %>
+	</div>
+
+<!--Principio de información-->
+<style>
+img{
+  border-radius: 100%;
+	border: solid 1px black;
+	width: 300px;
+	height: 300px;
+}
+
+.title{
+	font-variant: small-caps;
+	text-align: center;
+	font-size:30px;
+}
+.text{
+	width: 90%;
+	margin-left: 22px;
+	text-align: center;
+}
+</style>
+<div align="center">
+<img  src=/museos/image/<%= museos._id %> >
+</div>
+<br>
+<p class="title"><%= museos.Nombre %></p>
+<hr>
+<div class="text">
+<p style="font-size:16px;"><%= museos.Descripcion %></p>
+<hr>
+<br><br>
+</div>
+
+
+
+	<script type="text/javascript">
+									$(document).ready(function() {
+										$().UItoTop({ easingType: 'easeOutQuart' });
+									});
+								</script>
+									<a href="#" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+	<!-- content-Get-in-touch -->
+
+<% include footer%>

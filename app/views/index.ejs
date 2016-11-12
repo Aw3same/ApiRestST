@@ -1,0 +1,351 @@
+<!--
+Autor: Ángel Barroso Sanz
+TFG : SegoTour : Asistente android para un recorrido monumental virtual en Segovia
+Tutor: Jesús Cordobés Puertas
+Universidad de Valladolid, Campus María Zambrano, Segovia
+-->
+<!DOCTYPE HTML>
+<html>
+<% include head %>
+
+<body>
+<!--header-->
+	<div class="header">
+		<!-- container -->
+		<div class="container">
+			<div class="logo">
+				<h1><a href="../">mayS<span>Guide</span>Administration</a></h1>
+			</div>
+			<div class="top-nav">
+				<nav class="navbar navbar-default">
+					<div style="float:right; padding-right:20px">
+	          <a  href="/logout">  <span class="glyphicon glyphicon-off" aria-hidden="true"></span></a>
+	      </div>
+						<div class="clearfix"> </div>
+
+					</div>
+				</nav>
+			</div>
+		</div>
+<!--/header-->
+<style>
+.banner-top-grids {
+    margin-top: 7em;
+}
+
+.blue {
+    background: rgba(17, 44, 199, 0.61);
+}
+
+.whiteblu {
+    background: rgba(32, 121, 8, 0.61);
+}
+.redblue {
+    background: rgba(121, 59, 8, 0.61);
+}
+
+.hardblue {
+    background: rgba(153, 13, 189, 0.61);
+}
+.dargreen{
+	background: rgba(32, 121, 8, 0.61);
+}
+.liggreen{
+	background: rgba(121, 59, 8, 0.61);
+}
+.justgreen{
+	background: rgba(153, 13, 189, 0.61);
+}
+</style>
+				<div class="banner-top-grids">
+					<div class="top-grids">
+            <!--Primer ban LA GUÍA-->
+						<div class="col-md-6 banner-grid">
+							<a href="/monumentos/guide"><!--LINK-->
+							<div class="banner-left-grid green">
+								<div class="banner-left-icon">
+									<div class="services-icon">
+										<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+									</div>
+								</div>
+								<div class="banner-grid-info">
+									<h3>Consulta de monumentos</h3>
+									<p>Visualiza y borra monumentos</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						</a>
+						</div>
+            <!--Segundo ban MAPA-->
+						<div class="col-md-6 banner-grid">
+							<a href="/monumentos/anadir"><!--LINK-->
+							<div class="banner-left-grid green">
+								<div class="banner-left-icon">
+									<div class="services-icon">
+										<span class="glyphicon glyphicon-cloud-upload glyphicon-con" aria-hidden="true"></span>
+									</div>
+								</div>
+								<div class="banner-grid-info">
+									<h3>Crear monumento</h3>
+									<p>Creación de un nuevo monumento</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						</a>
+						</div>
+
+					</div>
+					<br><br><br>
+ 				<!-- segundas opciones -->
+					<div class="top-grids">
+            <!--Primer ban LA GUÍA-->
+						<div class="col-md-6 banner-grid">
+							<a href="/leyendas/guide"><!--LINK-->
+							<div class="banner-left-grid whiteblu">
+								<div class="banner-left-icon">
+									<div class="services-icon">
+										<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+									</div>
+								</div>
+								<div class="banner-grid-info">
+									<h3>Consulta de leyendas</h3>
+									<p>Visualiza y borra leyendas</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						</a>
+						</div>
+            <!--Segundo ban MAPA-->
+						<div class="col-md-6 banner-grid">
+							<a href="/leyendas/anadir"><!--LINK-->
+							<div class="banner-left-grid dargreen">
+								<div class="banner-left-icon">
+									<div class="services-icon">
+										<span class="glyphicon glyphicon-cloud-upload glyphicon-con" aria-hidden="true"></span>
+									</div>
+								</div>
+								<div class="banner-grid-info">
+									<h3>Crear leyendas</h3>
+									<p>Creación de una nueva leyenda</p>
+								</div>
+								<div class="clearfix"> </div>
+							</div>
+						</a>
+						</div>
+
+					</div>
+
+
+					<!-- terceras opciones -->
+						<div class="top-grids">
+							<!--Primer ban LA GUÍA-->
+							<div class="col-md-6 banner-grid">
+								<a href="/festivales/guide"><!--LINK-->
+								<div class="banner-left-grid redblue">
+									<div class="banner-left-icon">
+										<div class="services-icon">
+											<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+										</div>
+									</div>
+									<div class="banner-grid-info">
+										<h3>Consulta de festivales</h3>
+										<p>Visualiza y borra festivales</p>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</a>
+							</div>
+							<!--Segundo ban MAPA-->
+							<div class="col-md-6 banner-grid">
+								<a href="/festivales/anadir"><!--LINK-->
+								<div class="banner-left-grid liggreen">
+									<div class="banner-left-icon">
+										<div class="services-icon">
+											<span class="glyphicon glyphicon-cloud-upload glyphicon-con" aria-hidden="true"></span>
+										</div>
+									</div>
+									<div class="banner-grid-info">
+										<h3>Crear festival</h3>
+										<p>Creación de un nuevo festival</p>
+									</div>
+									<div class="clearfix"> </div>
+								</div>
+							</a>
+							</div>
+
+						</div>
+
+						<!-- cuatas opciones -->
+							<div class="top-grids">
+								<!--Primer ban LA GUÍA-->
+								<div class="col-md-6 banner-grid">
+									<a href="/museos/guide"><!--LINK-->
+									<div class="banner-left-grid hardblue">
+										<div class="banner-left-icon">
+											<div class="services-icon">
+												<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
+											</div>
+										</div>
+										<div class="banner-grid-info">
+											<h3>Consulta de museos</h3>
+											<p>Visualiza y borra museos</p>
+										</div>
+										<div class="clearfix"> </div>
+									</div>
+								</a>
+								</div>
+								<!--Segundo ban MAPA-->
+								<div class="col-md-6 banner-grid">
+									<a href="/museos/anadir"><!--LINK-->
+									<div class="banner-left-grid justgreen">
+										<div class="banner-left-icon">
+											<div class="services-icon">
+												<span class="glyphicon glyphicon-cloud-upload glyphicon-con" aria-hidden="true"></span>
+											</div>
+										</div>
+										<div class="banner-grid-info">
+											<h3>Crear museo</h3>
+											<p>Creación de un nuevo museo</p>
+										</div>
+										<div class="clearfix"> </div>
+									</div>
+								</a>
+								</div>
+
+							</div>
+
+
+				</div>
+
+	<!--Localización en index-->
+	<script>
+	document.addEventListener("backbutton", onBackKeyDown, false); //Listen to the User clicking on the back button
+
+function onBackKeyDown(e) {
+			console.log("en back");
+			e.preventDefault();
+			//navigator.app.exitApp();
+			navigator.notification.confirm("Estás seguro que deseas salir?", onConfirm, "Confirmación", "No,Sí");
+			// Prompt the user with the choice
+	}
+	function onConfirm(button) {
+			if(button==1){//If User selected No, then we just do nothing
+					return;
+			}else{
+					navigator.app.exitApp();// Otherwise we quit the app.
+			}
+	}
+	var myVar = setInterval(function(){ geoloc() }, 10000);
+
+	function geoloc() {
+
+	//Detectamos si nuestro dispositivo dispone de geolocalización
+	if (navigator.geolocation) {
+	    var optn = {
+	            enableHighAccuracy : true,
+	            timeout : Infinity,
+	            maximumAge : 60000, // Tiempo en milisegundos que el método utiliza los datos
+	            desiredAccuracy: 0,
+	            frequency: 30
+	    };
+	navigator.geolocation.getCurrentPosition(showPosition, showError, optn);
+
+		} else {
+			 alert('Tu dispositivo no soporta geolocalización');
+		 }
+	}
+
+	function showPosition(position) {
+
+			var locations = [
+				 ['Campus María Zambrano',40.942714,-4.114137,'university.html'],
+				 ['Acueducto',40.947991,-4.117791,'acueducto.html'],
+				 ['Catedral',40.95010389999999,-4.12533140000005,'catedral.html'],
+				 ['Alcázar',40.9521066,-4.130843400000003,'alcazar.html'],
+				 //La judería
+				 ['Corpus Christi',40.9494012,-4.123744699999975,'corpus.html'],
+				 ['Puerta de San Andrés',40.9499253,-4.127237199999968,'sanandres.html'],
+				 ['La Carnicería',40.95021,-4.129159999999956,'carnicería.html'],
+				 ['Centro Didáctico',40.9494579,-4.1247481000000334,'centrodidactico.html'],
+				 //Otros Monumentos
+				 ['Casa de la Moneda',40.9544494,-4.132925300000011,'casamoneda.html'],
+				 ['Puerta de Santiago',40.95296,-4.128559999999993,'puertasantiago.html'],
+				 ['Casa de los Picos',40.94798309999999,-4.120603599999981,'casapicos.html'],
+				 ['Casa los del Río',40.948092,-4.120766099999969,'casario.html'],
+				 ['Palacio Conde Alpuente',40.9482149,-4.121687599999973,'alpuente.html'],
+				 ['Torreón de Lozoya',40.9487443,-4.121295299999929,'torreon.html'],
+				 ['Casa del Sello',40.946794,-4.117839099999969,'casasello.html'],
+				 ['Casa de la Química',40.9525725,-4.132537800000023,'casaquimica.html'],
+				 //Iglesias y Monasterios
+				 ['San Martín',40.9487443,-4.121295299999929,'sanmartin.html'],
+				 ['Santísima Trinidad',40.9511445,-4.122484299999996,'trinidad.html'],
+				 ['San Juan de los Caballeros',40.9509437,-4.118259,'sanjuancaballeros.html'],
+				 ['San Esteban',40.9519889,-4.1270289,'sanesteban.html'],
+				 ['San Millán',40.9456048,-4.1230302,'sanmillan.html'],
+				 ['Santos Justo y Pastor',40.9476653,-4.115627099999983,'sanjusto.html'],
+				 ['Vera Cruz',40.95580899999999,-4.132305999999971,'veracruz.html'],
+				 ['San Antonio el Real',40.943717,-4.110311200000069,'sanantonio.html'],
+				 ['El Parral',40.9560161,-4.128322,'parral.html'],
+				 ['Carmelitas Descalzos',40.9556558,-4.1357145,'carmelitas.html'],
+				 ['La Fuencisla',40.9565888,-4.13745,'fuencisla.html'],
+				 ['Escuela',40.9444607,-4.1171684,'acueducto.html']
+				 //Posible introducción de más
+			];
+
+	    //Ubicamos en el mapa la posición en la que estamos
+	    var googlePos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+
+			//Check if googlePos is on any location of locations
+			for (var i=0; i<locations.length; i++){
+				var monument=new google.maps.LatLng(locations[i][1],locations[i][2]);
+				if (google.maps.geometry.spherical.computeDistanceBetween(googlePos, monument) <= 300){
+
+		        //Granted Permission for Push notifications
+	          cordova.plugins.notification.local.hasPermission(function (granted) {
+	              //console.log('Permission has been granted: ' + granted);
+	          });
+
+	          cordova.plugins.notification.local.registerPermission(function (granted) {
+	              //console.log('Permission has been registered: ' + granted);
+	          });
+
+						//Generate a push notification
+	          cordova.plugins.notification.local.schedule({
+	            title: "Atención : "+locations[i][0]+" cerca !",
+	            message: "Pulsa para ver más información"
+	        });
+
+					//Redirecting push to the information
+					var url=locations[i][3];
+					cordova.plugins.notification.local.on("click", function (notification, state) {
+					    window.location = url;
+					}, this);
+		    }
+			}
+
+	}
+
+
+	function showError(error) {
+			    var err = document.getElementById('map');
+			    switch(error.code) {
+			    case error.PERMISSION_DENIED:
+			    err.innerHTML = "El usuario a denegado la solicitud de ubicación."
+			    break;
+			    case error.POSITION_UNAVAILABLE:
+			    err.innerHTML = "La informacion de ubicación no está disponible."
+			    break;
+			    case error.TIMEOUT:
+			    err.innerHTML = "La peticion para obtener la ubicación ha excedido el tiempo."
+			    break;
+			    case error.UNKNOWN_ERROR:
+			    err.innerHTML = "Error desconocido."
+			    break;
+			    }
+	    }
+	</script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA2fntchaRZKrYdAhZuRgTvFE_wbetVpZw&signed_in=true&callback=geoloc&libraries=geometry"
+			async defer>
+	</script>
+
+<% include footer %>
